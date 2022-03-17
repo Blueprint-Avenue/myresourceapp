@@ -1,114 +1,114 @@
-import * as React from 'react';
-import { Text, View } from 'react-native';
-import { Icon } from 'react-native-elements';
+import React from 'react';
+import { Text, View, StyleSheet, Platform } from 'react-native';
+import { Icon } from 'react-native-vector-icons/FontAwesome5';
+import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Contact from './ContactScreen';
+import Home from './HomeScreen';
+import Crypto from './CryptoScreen';
+import { createAppContainer } from 'react-navigation';
+import Constants from 'expo-constants';
+
 
 function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
+    return (
+      <View style={styles.container}>
+        <Text>Home!</Text>
+      </View>
+    );
+  }
 
 function ServicesScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       <Text>Services!</Text>
     </View>
   );
 }
-function AboutScreen() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>About!</Text>
-      </View>
-    );
-  }
 
-  function CryptoScreen() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Crypto!</Text>
-      </View>
-    );
-  }
-  function ContactScreen() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Contact!</Text>
-      </View>
-    );
-  }
+const Tab = createMaterialBottomTabNavigator();
 
-
-
-const Tab = createBottomTabNavigator();
 
 export default function Main() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-       initialRouteName="Home"
-       activeColor="#f0edf6"
-       inactiveColor="#3e2465"
-      labelStyle={{ fontSize: 12 }}
-      barStyle={{ backgroundColor: '#694fad' }}
+      screenOptions={({route}) => ({
+
+          tabBarIcon: ({focused, size, color}) => {
+              let iconName;
+              if (route.name === 'Home') {
+                  iconName='home';
+                  size = focused ? 25 : 20;
+                  color= focused ? '#008E89' : '#FFD32D';
+              } else if (route.name === 'Services'){
+                  iconName='support';
+                  size = focused ? 25 : 20;
+                  color= focused ? '#008E89' : '#FFD32D';
+              } else if (route.name === 'Crypto'){
+                iconName='bitcoin';
+                size = focused ? 25 : 20;
+                color= focused ? '#008E89' : '#FFD32D';
+            } else if (route.name === 'Contact'){
+                iconName='chat';
+                size = focused ? 25 : 20;
+                color= focused ? '#008E89' : '#FFD32D';
+
+            }
+            return(
+                <FontAwesome
+                name={iconName}
+                size={size}
+                color={color}
+                />
+            )
+          }
+      })}
+      tabBarOptions={{
+          showIcon: true,
+          labelStyle: { fontSize: 16},
+          showLabel: true
+      }}
+      activeColor='#f0edf6'
+      inactiveColor='#008E89'
+      barStyle={{backgroundColor:'#085E8D'}}
       >
         <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{
-            tabBarLabel: 'Home',
-            tabBarIcon: ({ tintColor }) => (
-              <MaterialCommunityIcons name="home" color={tintColor} size={26} />
-            ),
-        }}
         />
         <Tab.Screen
         name="Services"
         component={ServicesScreen}
-        options={{
-            tabBarLabel: 'Services',
-            tabBarIcon: ({tintColor }) => (
-              <Icon name="support" color={tintColor} size={26} />
-            ),
-        }}
-        />
-        <Tab.Screen
-        name="About Us"
-        component={AboutScreen}
-        options={{
-            tabBarLabel: 'About Us',
-            tabBarIcon: ({ tintColor }) => (
-              <Icon name="info" color={tintColor} size={26} />
-            ),
-        }}
         />
         <Tab.Screen
         name="Crypto"
-        component={CryptoScreen}
-        options={{
-            tabBarLabel: 'Crypto',
-            tabBarIcon: ({ tintColor }) => (
-              <Icon name="attach-money" color={tintColor} size={26} />
-            ),
-        }}
+        component={Crypto}
         />
         <Tab.Screen
         name="Contact Us"
-        component={ContactScreen}
-        options={{
-            tabBarLabel: 'Contact Us',
-            tabBarIcon: ({ tintColor }) => (
-              <Icon name="contact-mail" color={tintColor} size={26} />
-            ),
-        }}
+        component={Contact}
         />
 
       </Tab.Navigator>
+      {/* <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Services" component={ServicesScreen} />
+        <Stack.Screen name="About Us" component={AboutScreen} />
+        <Stack.Screen name="Crypto" component={CryptoScreen} />
+        <Stack.Screen name="Contact Us" component={ContactNavigator} />
+      </Stack.Navigator> */}
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+    container: {
+       flex: 1,
+       justifyContent:'center',
+       alignItems: 'center'
+    }
+});

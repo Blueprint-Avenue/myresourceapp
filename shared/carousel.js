@@ -1,0 +1,32 @@
+export const CAROUSEL = [
+    {
+        id:0,
+        title:'Saitamask',
+        image:"/assets/images/saitama.png"
+    },
+    {
+        id:1,
+        title:'ShibaSwap',
+        image:"/assets/images/shibainu.png"
+    },
+    {
+        id:2,
+        title:'Trust Wallet',
+        image:"/assets/images/trust.png"
+    },
+    {
+        id:3,
+        title:'Coinbase',
+        image:"/assets/images/coinbase-logo.png"
+    },
+    {
+        id:4,
+        title:'Binance',
+        image:"/assets/images/binance.png"
+    },
+    {
+        id:5,
+        title:'Crypto.Com',
+        image:"/assets/images/color_icon.png"
+    },
+]
