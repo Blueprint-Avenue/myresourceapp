@@ -41,14 +41,5 @@ export const CRYPTO = [
         description: 'Holders can buy the currencies from brokers then store and spend them using crypto graphic wallets.',
         image:"/assets/images/blockchain-crypto.jpg"
     },
-    // {
-    //     id:6,
-    //     title:'A few exchanges to look up:',
-    //     link1:'https://shibaswap.com/#/',
-    //     link2:'https://www.coinbase.com/',
-    //     link3:'https://apps.apple.com/us/app/saitamask/id1600340889',
-    //     link4:'https://crypto.com/',
-    //     link5:'https://trustwallet.com/',
-    //     link6:'https://uniswap.org/'
-    // }
+
 ];

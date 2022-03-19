@@ -1,35 +1,20 @@
 import React from 'react';
-import { Text, View, StyleSheet, Platform } from 'react-native';
-import { Icon } from 'react-native-vector-icons/FontAwesome5';
-import { Ionicons } from '@expo/vector-icons';
+import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import Contact from './ContactScreen';
-import Home from './HomeScreen';
-import Crypto from './CryptoScreen';
-import { MainStackNavigator } from './StackNavigator';
-import Services from './ServicesScreen';
 import BottomTabNavigator from './TabNavigator';
-
-
-
+import Constants from 'expo-constants';
 
 
 
 export default function Main() {
   return (
+    <View style={{
+      flex: 1,
+      paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
+  }}>
     <NavigationContainer>
       <BottomTabNavigator />
     </NavigationContainer>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-    container: {
-       flex: 1,
-       justifyContent:'center',
-       alignItems: 'center'
-    }
-});

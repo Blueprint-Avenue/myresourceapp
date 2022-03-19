@@ -81,6 +81,7 @@ class Crypto extends Component {
         }
 
         return (
+
             <ScrollView style={style.container}>
                 <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
                     <CryptoMission />
@@ -105,6 +106,7 @@ class Crypto extends Component {
         </Card>
                 </Animatable.View>
             </ScrollView>
+
 
         )
     }

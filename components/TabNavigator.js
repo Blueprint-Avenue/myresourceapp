@@ -3,8 +3,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { MainStackNavigator, ContactStackNavigator, CryptoStackNavigator, HomeStackNavigator } from './StackNavigator';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { Text, View, StyleSheet, Platform } from 'react-native';
-import { Icon } from 'react-native-vector-icons/FontAwesome5';
-import { Ionicons } from '@expo/vector-icons';
+
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -29,7 +28,7 @@ const BottomTabNavigator = () => {
                 size = focused ? 25 : 20;
                 color= focused ? '#008E89' : '#FFD32D';
             } else if (route.name === 'Contact'){
-                iconName='chat';
+                iconName='paper-plane';
                 size = focused ? 25 : 20;
                 color= focused ? '#008E89' : '#FFD32D';
 
