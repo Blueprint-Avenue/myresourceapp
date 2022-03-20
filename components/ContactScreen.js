@@ -37,7 +37,10 @@ class Contact extends Component {
                         <Text>3343 Peachtree Rd NE Ste 145-740</Text>
                         <Text>Atlanta, GA 30326</Text>
                         <Text style={{ marginBottom: 10 }}>U.S.A.</Text>
-                        <Text>Email: OurHelpingHand@macsventuregroup.com</Text>
+                        <Text>
+                            Email:
+                            O.H.H@macsventuregroup.com
+                        </Text>
                         <Button
                             title="Send Email"
                             buttonStyle={{ backgroundColor: '#085E7D', margin: 40 }}

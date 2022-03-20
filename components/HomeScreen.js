@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { Card } from 'react-native-elements';
 import { HOMESCREEN } from '../shared/homescreen';
 
@@ -35,7 +35,7 @@ class Home extends Component {
 
     render() {
         return (
-            <ScrollView>
+            <ScrollView style={styles.container}>
                 <RenderItem
                     item={this.state.homescreen.filter(homescreen => homescreen.featured)[0]}
                 />
@@ -50,5 +50,14 @@ class Home extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#008E89',
+
+    },
+
+});
 
 export default Home;

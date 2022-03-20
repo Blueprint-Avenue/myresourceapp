@@ -20,7 +20,16 @@ const MainStackNavigator = () => {
       }}
     >
       <Stack.Screen name="Services" component={Services} />
+      {/* <Stack.Screen name="Homelessness" component={Homelessness} />
+      <Stack.Screen name="Domestic Abuse" component={Domestic} />
+      <Stack.Screen name="Food Pantries" component={Pantry} />
+      <Stack.Screen name="Rental Services" component={Rental} />
+      <Stack.Screen name="Tenant Rights" component={Tenant} />
+      <Stack.Screen name="Elder Abuse" component={Elder} /> */}
       <Stack.Screen name="Mental Health" component={Mental} />
+      {/* <Stack.Screen name="Credit Builder" component={Credit} />
+      <Stack.Screen name="Home Ownership" component={Ownership} />
+      <Stack.Screen name="Legal Services" component={Legal} /> */}
     </Stack.Navigator>
   );
 }

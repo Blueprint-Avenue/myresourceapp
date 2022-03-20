@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 const data = [
           { key: " Homelessness "},
@@ -34,23 +35,23 @@ const numColumns = 2;
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
     return (
-      <View
-        style={styles.item}
-      >
+      // <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
+      <View style={styles.item}>
         <Text style={styles.itemText}>{item.key}</Text>
       </View>
+      /* </Animatable.View> */
     );
   };
 
   render() {
     return (
+
       <FlatList
         data={formatData(data, numColumns)}
         style={styles.container}
         renderItem={this.renderItem}
         numColumns={numColumns}
       />
-
     );
   }
 }
@@ -58,7 +59,7 @@ const numColumns = 2;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 20,
+    backgroundColor: '#008E89',
 
   },
   item: {
