@@ -1,76 +1,83 @@
-import React, { Component } from 'react'
-import { Text } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
 
- class Services extends Component {
-  constructor(props) {
-    super(props);
-      this.state ={
-        GridListItems: [
-          { key: " Homeless Shelter's"},
+const data = [
+          { key: " Homelessness "},
           { key: " Domestic Abuse"},
           { key: " Food Pantries"},
           { key: " Rental Services"},
           { key: " Tentant Rights"},
           { key: " Suicide Prevention"},
           { key: " Elder Abuse"},
-          { key: " Credit Builder Services"},
-          { key: " Home Ownership Services"},
+          { key: " Credit Builder "},
+          { key: " Home Ownership "},
           { key: " Legal Services"},
-        ]
-      }
+
+];
+
+const formatData = (data, numColumns) => {
+  const numberOfFullRows = Math.floor(data.length / numColumns);
+
+  let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
+  while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
+    data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
+    numberOfElementsLastRow++;
   }
 
+  return data;
+};
 
-  GetGridViewItem(item) {
-    Alert.alert(item);
-  }
-
-    static navigationOptions = {
-        title: 'Services'
+const numColumns = 2;
+ class Services extends Component {
+  renderItem = ({ item, index }) => {
+    if (item.empty === true) {
+      return <View style={[styles.item, styles.itemInvisible]} />;
     }
+    return (
+      <View
+        style={styles.item}
+      >
+        <Text style={styles.itemText}>{item.key}</Text>
+      </View>
+    );
+  };
 
   render() {
     return (
-      <View style={styles.container}>
       <FlatList
-         data={ this.state.GridListItems }
-         renderItem={ ({item}) =>
-           <View style={styles.GridViewContainer}>
-            <Text style={styles.GridViewTextLayout} onPress={this.GetGridViewItem.bind(this, item.key)} > {item.key} </Text>
-           </View> }
-         numColumns={2}
+        data={formatData(data, numColumns)}
+        style={styles.container}
+        renderItem={this.renderItem}
+        numColumns={numColumns}
       />
-    </View>
-    )
+
+    );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#e5e5e5"
+    marginVertical: 20,
+
   },
-  headerText: {
+  item: {
+    backgroundColor: '#085E8D',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    margin: 1,
+    height: Dimensions.get('window').width / numColumns, // approximate a square
+  },
+  itemInvisible: {
+    backgroundColor: 'transparent',
+  },
+  itemText: {
     fontSize: 20,
-    textAlign: "center",
-    margin: 10,
-    fontWeight: "bold"
+   fontWeight: "900",
+   justifyContent: 'center',
+    color: '#fff',
   },
-  GridViewContainer: {
-   flex:1,
-   justifyContent: 'center',
-   alignItems: 'center',
-   height: 100,
-   margin: 5,
-   backgroundColor: '#008E89'
-},
-GridViewTextLayout: {
-   fontSize: 20,
-   fontWeight: 'bold',
-   justifyContent: 'center',
-   color: '#fff',
-   padding: 10,
- }
 });
 
 export default Services;
