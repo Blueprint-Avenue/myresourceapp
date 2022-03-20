@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import React, { Component } from 'react'
 import { Text, Button, View } from 'react-native';
 
-class Mental extends Component {
+class Credit extends Component {
   render() {
     return (
         <View>
@@ -13,4 +13,4 @@ class Mental extends Component {
   }
 }
 
-export default Mental;
+export default Credit;

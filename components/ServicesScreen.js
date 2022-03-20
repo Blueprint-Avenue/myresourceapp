@@ -3,15 +3,15 @@ import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
 
 const data = [
           { key: " Homelessness "},
-          { key: " Domestic Abuse"},
-          { key: " Food Pantries"},
-          { key: " Rental Services"},
-          { key: " Tentant Rights"},
-          { key: " Suicide Prevention"},
-          { key: " Elder Abuse"},
+          { key: " Domestic Abuse "},
+          { key: " Food Pantries "},
+          { key: " Rental Service's "},
+          { key: " Tenant Right's "},
+          { key: " Metal Health "},
+          { key: " Elder Abuse "},
           { key: " Credit Builder "},
           { key: " Home Ownership "},
-          { key: " Legal Services"},
+          { key: " Legal Service's "},
 
 ];
 
