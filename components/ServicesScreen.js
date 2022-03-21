@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Dimensions,TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+
 
 const data = [
           { key: " Homelessness "},
@@ -30,16 +31,35 @@ const formatData = (data, numColumns) => {
 
 const numColumns = 2;
  class Services extends Component {
+  constructor(props) {
+    super(props);
+    this.onPress = this.onPress.bind(this);
+  }
+
+onPress = () => {
+  this.props.navigation.navigate('Services',
+  { screen: 'Homelessness', initial: false,},
+  { screen: 'Domestic', initial: false,},
+  { screen: 'Pantry', initial: false,},
+  { screen: 'Rental', initial: false,},
+  { screen: 'Tenant', initial: false,},
+  { screen: 'Mental', initial: false,},
+  { screen: 'Elder', initial: false,},
+  { screen: 'Credit', initial: false,},
+  { screen: 'Ownership', initial: false,},
+  { screen: 'Legal', initial: false,}
+  )
+}
   renderItem = ({ item, index }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
     return (
-      // <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
-      <View style={styles.item}>
+      <TouchableOpacity style={styles.item} key={item.key}  onPress={this.onPress}>
+      <View >
         <Text style={styles.itemText}>{item.key}</Text>
       </View>
-      /* </Animatable.View> */
+     </TouchableOpacity>
     );
   };
 
