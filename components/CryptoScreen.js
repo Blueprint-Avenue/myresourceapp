@@ -17,7 +17,108 @@ function CryptoMission(props) {
     )
 }
 
-
+function RenderSaita({item}) {
+    if (item) {
+        return (
+            <View>
+            <Card
+                featuredTitle={item.title0}
+                image={require("./images/saitama.png")}
+            >
+                <Text style={{margin: 10}}>
+                    {item.description0}
+                </Text>
+            </Card>
+      </View>
+        );
+    }
+    return <View />;
+}
+function RenderShiba({item}) {
+    if (item) {
+        return (
+            <View>
+             <Card
+             featuredTitle={item.title1}
+             image={require('./images/shibainu.png')}
+         >
+             <Text style={{margin: 10}}>
+                 {item.description1}
+             </Text>
+         </Card>
+      </View>
+        );
+    }
+    return <View />;
+}
+function RenderTrust({item}) {
+    if (item) {
+        return (
+            <View>
+             <Card
+             featuredTitle={item.title2}
+             image={require('./images/trust.png')}
+         >
+             <Text style={{margin: 10}}>
+                 {item.description2}
+             </Text>
+         </Card>
+      </View>
+        );
+    }
+    return <View />;
+}
+function RenderCoin({item}) {
+    if (item) {
+        return (
+            <View>
+            <Card
+                featuredTitle={item.title3}
+                image={require("./images/coinbase-logo.png")}
+            >
+                <Text style={{margin: 10}}>
+                    {item.description3}
+                </Text>
+            </Card>
+      </View>
+        );
+    }
+    return <View />;
+}
+function RenderBina({item}) {
+    if (item) {
+        return (
+            <View>
+             <Card
+             featuredTitle={item.title4}
+             image={require('./images/binance.png')}
+         >
+             <Text style={{margin: 10}}>
+                 {item.description4}
+             </Text>
+         </Card>
+      </View>
+        );
+    }
+    return <View />;
+}
+function RenderCrypto({item}) {
+    if (item) {
+        return (
+            <View>
+             <Card
+             featuredTitle={item.title5}
+             image={require('./images/color_icon.png')}
+         >
+             <Text style={{margin: 10}}>
+                 {item.description5}
+             </Text>
+         </Card>
+      </View>
+        );
+    }
+    return <View />;
+}
 class Crypto extends Component {
     constructor(props) {
         super(props);
@@ -70,15 +171,15 @@ class Crypto extends Component {
 
     render() {
 
-        const renderCrypto = ({item}) => {
-            return (
-                <ListItem
-                    title={item.title}
-                    subtitle={item.description}
-                    leftAvatar={{source:{uri: item.image}}}
-                />
-            )
-        }
+        // const renderCrypto = ({item}) => {
+        //     return (
+        //         <ListItem
+        //             title={item.title}
+        //             subtitle={item.description}
+        //             leftAvatar={{source:{uri: item.image}}}
+        //         />
+        //     )
+        // }
 
         return (
 
@@ -96,12 +197,25 @@ class Crypto extends Component {
                     </Card>
                     <Card title={"Crypto Brokers"} wrapperStyle={{margin:20}}>
             <View>
-            <FlatList
-                data={this.state.carousel}
-                keyExtractor={item => item.id}
-                renderItem={renderCrypto}
-                scrollEnabled={false}
-            />
+                <RenderSaita
+                    item={this.state.carousel.filter(carousel => carousel.featured)[0]}
+                />
+                <RenderShiba
+                    item={this.state.carousel.filter(carousel => carousel.featured)[1]}
+                />
+                <RenderTrust
+                    item={this.state.carousel.filter(carousel => carousel.featured)[2]}
+                />
+               <RenderCoin
+                    item={this.state.carousel.filter(carousel => carousel.featured)[3]}
+                />
+                <RenderBina
+                    item={this.state.carousel.filter(carousel => carousel.featured)[4]}
+                />
+                <RenderCrypto
+                    item={this.state.carousel.filter(carousel => carousel.featured)[5]}
+                />
+
             </View>
         </Card>
                 </Animatable.View>
