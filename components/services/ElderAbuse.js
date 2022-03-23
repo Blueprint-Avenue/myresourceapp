@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 import { Text, Button, View } from 'react-native';
 
 class Elder extends Component {
+  static navigationOptions = {
+    title: 'Elder Abuse'
+}
   render() {
     return (
         <View>

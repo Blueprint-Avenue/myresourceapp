@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 import { Text, Button, View } from 'react-native';
 
 class Domestic extends Component {
+  static navigationOptions = {
+    title: 'Domestic Abuse'
+}
   render() {
     return (
         <View>

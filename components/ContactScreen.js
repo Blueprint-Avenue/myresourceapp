@@ -4,6 +4,7 @@ import { Card, Text, Button, Icon } from 'react-native-elements';
 import { StyleSheet } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import * as MailComposer from 'expo-mail-composer';
+import { useFonts, Cairo_400Regular, Cairo_900Regular} from '@expo-google-fonts/cairo';
 
 function About(props) {
     return (
@@ -63,8 +64,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#008E89',
-        paddingTop: 50,
-        paddingBottom: 50
+        paddingTop: 15,
+        paddingBottom: 15
+    },
+    Text: {
+        fontFamily: 'Cairo_400Regular',
     }
 });
 

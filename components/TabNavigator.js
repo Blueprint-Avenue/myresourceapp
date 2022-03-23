@@ -4,7 +4,7 @@ import { MainStackNavigator, ContactStackNavigator, CryptoStackNavigator, HomeSt
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { Text, View, StyleSheet, Platform} from 'react-native';
 import Icon from "react-native-ionicons";
-
+import { useFonts, Anton_400Regular} from '@expo-google-fonts/anton';
 
 
 
@@ -20,19 +20,19 @@ const BottomTabNavigator = () => {
               let iconName;
               if (route.name === 'Home') {
                   iconName='home';
-                  size = focused ? 27 : 25;
+                  size = focused ? 22 : 25;
                   color= focused ? '#008E89' : '#FFD32D';
               } else if (route.name === 'Services'){
                   iconName='support';
-                  size = focused ? 27 : 25;
+                  size = focused ? 22 : 25;
                   color= focused ? '#008E89' : '#FFD32D';
               } else if (route.name === 'Crypto'){
                 iconName='bitcoin';
-                size = focused ? 27 : 25;
+                size = focused ? 22 : 25;
                 color= focused ? '#008E89' : '#FFD32D';
-            } else if (route.name === 'Contact'){
-                iconName='infocircle';
-                size = focused ? 27 : 25;
+            } else if (route.name === 'Contact Us'){
+                iconName='paper-plane';
+                size = focused ? 22 : 25;
                 color= focused ? '#008E89' : '#FFD32D';
 
             }
@@ -78,5 +78,11 @@ const BottomTabNavigator = () => {
       </Tab.Navigator>
     )
 }
+
+const style = StyleSheet.create({
+    Text: {
+        fontFamily: "Anton_400Regular",
+    }
+});
 
 export default BottomTabNavigator;

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { Card } from 'react-native-elements';
 import { HOMESCREEN } from '../shared/homescreen';
-
+import * as Animatable from 'react-native-animatable';
+import { useFonts, Cairo_400Regular, Cairo_900Regular} from '@expo-google-fonts/cairo';
 
 function RenderItem({item}) {
     if (item) {
@@ -71,7 +72,9 @@ class Home extends Component {
 
     render() {
         return (
+
             <ScrollView style={styles.container}>
+                <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
                 <RenderItem
                     item={this.state.homescreen.filter(homescreen => homescreen.featured)[0]}
                 />
@@ -81,8 +84,7 @@ class Home extends Component {
                 <RenderCard3
                     item={this.state.homescreen.filter(homescreen => homescreen.featured)[2]}
                 />
-
-
+           </Animatable.View>
             </ScrollView>
         );
     }
@@ -95,7 +97,9 @@ const styles = StyleSheet.create({
       paddingTop: 10,
 
     },
-
+    Text: {
+        fontFamily: 'Cairo_400Regular',
+    }
 });
 
 export default Home;

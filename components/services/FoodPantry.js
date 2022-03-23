@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 import { Text, Button, View } from 'react-native';
 
 class Pantry extends Component {
+  static navigationOptions = {
+    title: 'Food Pantry'
+}
   render() {
     return (
         <View>

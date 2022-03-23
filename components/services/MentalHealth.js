@@ -3,6 +3,10 @@ import React, { Component } from 'react'
 import { Text, Button, View } from 'react-native';
 
 class Mental extends Component {
+
+  static navigationOptions = {
+    title: 'Mental Health'
+}
   render() {
     return (
         <View>

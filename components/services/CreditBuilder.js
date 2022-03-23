@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 import { Text, Button, View } from 'react-native';
 
 class Credit extends Component {
+  static navigationOptions = {
+    title: 'Credit Builder'
+}
   render() {
     return (
         <View>

@@ -1,20 +1,11 @@
 import React from "react";
+import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./HomeScreen";
 import Contact from "./ContactScreen";
 import Crypto from "./CryptoScreen";
-import Services from './ServicesScreen';
-import Mental from "./services/MentalHealth";
-import Pantry from "./services/FoodPantry";
-import Elder from "./services/ElderAbuse";
-import Homelessness from "./services/Homelessness";
-import Ownership from "./services/HomeOwnership";
-import Domestic from "./services/DomesticAbuse";
-import Credit from "./services/CreditBuilder";
-import Legal from './services/LegalServices';
-import Rental from './services/RentalServices';
-import Tenant from './services/TenantRights';
-
+import OurServices from './ServicesScreen';
+import { useFonts, Anton_400Regular} from '@expo-google-fonts/anton';
 
 
 const Stack = createStackNavigator();
@@ -30,17 +21,7 @@ const MainStackNavigator = () => {
         headerBackTitle: "#FFD32D",
       }}
     >
-      <Stack.Screen name="Services" component={Services} />
-      <Stack.Screen name="Homelessness" component={Homelessness} />
-      <Stack.Screen name="Domestic Abuse" component={Domestic} />
-      <Stack.Screen name="Food Pantries" component={Pantry} />
-      <Stack.Screen name="Rental Services" component={Rental} />
-      <Stack.Screen name="Tenant Rights" component={Tenant} />
-      <Stack.Screen name="Elder Abuse" component={Elder} />
-      <Stack.Screen name="Mental Health" component={Mental} />
-      <Stack.Screen name="Credit Builder" component={Credit} />
-      <Stack.Screen name="Home Ownership" component={Ownership} />
-      <Stack.Screen name="Legal Services" component={Legal} />
+      <Stack.Screen name="Services 4 You" component={OurServices} />
     </Stack.Navigator>
   );
 }
@@ -56,7 +37,7 @@ const HomeStackNavigator = () => {
           headerBackTitle: "#FFD32D",
         }}
       >
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Our Helping Hand" component={Home} />
       </Stack.Navigator>
     );
   }
@@ -90,5 +71,11 @@ const HomeStackNavigator = () => {
       </Stack.Navigator>
     );
   }
-
+  const style = StyleSheet.create({
+    Text: {
+        fontFamily: "Anton_400Regular",
+        fontWeight: "900",
+        fontSize: 45
+    }
+});
 export { MainStackNavigator, ContactStackNavigator, CryptoStackNavigator, HomeStackNavigator };

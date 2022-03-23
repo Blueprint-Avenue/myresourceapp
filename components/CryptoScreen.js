@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { FlatList, ScrollView, Text, StyleSheet, View, SafeAreaView, Image } from 'react-native';
+import { FlatList, ScrollView, Text, StyleSheet, View, SafeAreaView, Image, Linking, TouchableOpacity } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import Accordion from 'react-native-collapsible/Accordion';
 import { CRYPTO } from '../shared/crypto';
 import { CAROUSEL } from '../shared/carousel';
+import { useFonts, Cairo_400Regular, Cairo_900Regular} from '@expo-google-fonts/cairo';
 
 
 
@@ -25,9 +26,11 @@ function RenderSaita({item}) {
                 featuredTitle={item.title0}
                 image={require("./images/saitama.png")}
             >
+                <TouchableOpacity onPress={() => Linking.openURL('https://saitamatoken.com/')}>
                 <Text style={{margin: 10}}>
                     {item.description0}
                 </Text>
+                </TouchableOpacity>
             </Card>
       </View>
         );
@@ -42,9 +45,11 @@ function RenderShiba({item}) {
              featuredTitle={item.title1}
              image={require('./images/shibainu.png')}
          >
+             <TouchableOpacity onPress={() => Linking.openURL('https://shibaswap.com/#/')}>
              <Text style={{margin: 10}}>
                  {item.description1}
              </Text>
+             </TouchableOpacity>
          </Card>
       </View>
         );
@@ -59,9 +64,11 @@ function RenderTrust({item}) {
              featuredTitle={item.title2}
              image={require('./images/trust.png')}
          >
+             <TouchableOpacity onPress={() => Linking.openURL('https://trustwallet.com/')}>
              <Text style={{margin: 10}}>
                  {item.description2}
              </Text>
+             </TouchableOpacity>
          </Card>
       </View>
         );
@@ -76,9 +83,11 @@ function RenderCoin({item}) {
                 featuredTitle={item.title3}
                 image={require("./images/coinbase-logo.png")}
             >
+                <TouchableOpacity onPress={() => Linking.openURL('https://www.coinbase.com/')}>
                 <Text style={{margin: 10}}>
                     {item.description3}
                 </Text>
+                </TouchableOpacity>
             </Card>
       </View>
         );
@@ -93,9 +102,11 @@ function RenderBina({item}) {
              featuredTitle={item.title4}
              image={require('./images/binance.png')}
          >
+             <TouchableOpacity onPress={() => Linking.openURL('https://www.binance.us/en/home?gclid=CjwKCAjwxOCRBhA8EiwA0X8hi1zDG3bBspt_rltDyLE74tSSbOl4B_LZm7HDiwO6yAaZmd5X20glxBoClXcQAvD_BwE')}>
              <Text style={{margin: 10}}>
                  {item.description4}
              </Text>
+             </TouchableOpacity>
          </Card>
       </View>
         );
@@ -110,9 +121,11 @@ function RenderCrypto({item}) {
              featuredTitle={item.title5}
              image={require('./images/color_icon.png')}
          >
+              <TouchableOpacity onPress={() => Linking.openURL('https://crypto.com/us/')}>
              <Text style={{margin: 10}}>
                  {item.description5}
              </Text>
+             </TouchableOpacity>
          </Card>
       </View>
         );
@@ -133,6 +146,7 @@ class Crypto extends Component {
         title: 'Crypto'
     }
 
+
     _renderHeader = (section, index, isActive, sections) => {
         return (
             <Animatable.View
@@ -151,7 +165,7 @@ class Crypto extends Component {
             <Animatable.View
         duration={300}
         transition="backgroundColor"
-        style={{ backgroundColor: (isActive ? '#FFD32D' : '#008E89') }}>
+        style={{ backgroundColor: (isActive ? 'white' : '#008E89') }}>
             <View style={style.description}>
             <Animatable.Text
           duration={300}
@@ -240,14 +254,17 @@ const style = StyleSheet.create({
         lineHeight: 20 * 1.5,
     },
     headerText: {
-        fontSize: 21,
+        fontSize: 20,
         fontWeight: '900',
         textTransform: 'uppercase',
-        letterSpacing: -1,
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#084594'
+        color: '#084594',
+
     },
+    Text: {
+        fontFamily: 'Cairo_400Regular',
+    }
 });
 
 export default Crypto;
